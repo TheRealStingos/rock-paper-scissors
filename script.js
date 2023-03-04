@@ -1,5 +1,9 @@
 
 const options = ["rock", "paper", "scissors"]
+const rockButton = document.querySelector('.rock')
+const paperButton = document.querySelector('.paper')
+const scissorsButton = document.querySelector('.scissors')
+const score = document.querySelector('.scoreboard')
 
 function getComputerChoice(){
     const choice = options[Math.floor(Math.random() * options.length)]
@@ -23,57 +27,64 @@ function checkWinner(playerSelection,computerSelection){
 }
 
 function playRound(playerSelection,computerSelection){
-    const result = checkWinner(playerSelection, computerSelection);
+    const result = checkWinner(playerSelection,computerSelection);
     if(result == "Tie"){
-        return "It's a Tie! No one wins!"
+        const p = document.createElement('p')
+        p.innerText = 'It\'s a Tie! No one wins!'
+        score.appendChild(p)
     }
     else if(result == "Player"){
-        return `Player wins! ${playerSelection} beats ${computerSelection}`
+        const p = document.createElement('p')
+        p.innerText = `Player wins! ${playerSelection} beats ${computerSelection}`
+        score.appendChild(p)
     }
     else{
-        return `You Lose! ${computerSelection} beats ${playerSelection}`
+        const p = document.createElement('p')
+        p.innerText = `You Lose! ${computerSelection} beats ${playerSelection}`
+        score.appendChild(p)
     }
 }
 
-function getPlayerChoice(){
-    let validatedInput = false;
-    while(validatedInput == false){
-        const choice = prompt("What is your choice: Rock, Paper, or Scissors?");
-        if(choice == null){
-            continue;
-        }
-        const choiceLowerCase = choice.toLowerCase();
-        if(options.includes(choiceLowerCase)){
-            validatedInput = true;
-            return choiceLowerCase;
-        }
-    }
-}
+// function game(){
+//     let scorePlayer = 0;
+//     let scoreComputer = 0;
+//     console.log("Ready to play?")
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = getPlayerChoice();
+//         const computerSelection = getComputerChoice();
+//         console.log(playRound(playerSelection,computerSelection));
+//         if(checkWinner(playerSelection,computerSelection) == "Player"){
+//             scorePlayer++;
+//         } else if(checkWinner(playerSelection,computerSelection) == "Computer"){
+//             scoreComputer++;
+//         }
+//     }
+//     console.log("Game Over")
+//     if(scorePlayer > scoreComputer){
+//         console.log("You Win the game!)")
+//     }
+//     else if (scorePlayer < scoreComputer){
+//         console.log("Sorry, you lose.")
+//     }
+//     else{
+//         console.log("Tie!)")
+//     }
+// }
 
-function game(){
-    let scorePlayer = 0;
-    let scoreComputer =0;
-    console.log("Ready to play?")
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = getPlayerChoice();
-        const computerSelection = getComputerChoice();
-        console.log(playRound(playerSelection,computerSelection));
-        if(checkWinner(playerSelection,computerSelection) == "Player"){
-            scorePlayer++;
-        } else if(checkWinner(playerSelection,computerSelection) == "Computer"){
-            scoreComputer++;
-        }
-    }
-    console.log("Game Over")
-    if(scorePlayer > scoreComputer){
-        console.log("You Win the game!)")
-    }
-    else if (scorePlayer < scoreComputer){
-        console.log("Sorry, you lose.")
-    }
-    else{
-        console.log("Tie!)")
-    }
-}
+rockButton.addEventListener('click', () => {
+    const computerSelection = getComputerChoice()
+    const playerSelection = 'rock'
+    playRound(playerSelection,computerSelection)
+})
 
-game()
+paperButton.addEventListener('click', () => {
+    const computerSelection = getComputerChoice()
+    const playerSelection = 'paper'
+    playRound(playerSelection,computerSelection)
+})
+
+scissorsButton.addEventListener('click', () => {
+    const computerSelection = getComputerChoice()
+    const playerSelection = 'scissors'
+    playRound(playerSelection,computerSelection)
+})
