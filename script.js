@@ -29,6 +29,7 @@ function checkWinner(playerSelection,computerSelection){
 let t = 0;
 let p = 0;
 let c = 0;
+let r = 0;
 
 function tieIncrease(){
     const tieCount = document.querySelector('.tie-count')
@@ -48,9 +49,19 @@ function cIncrease(){
     c++;
 }
 
+function roundIncrease(){
+    const rCount = document.querySelector('.r-count')
+    rount = r
+    r++;
+}
+
+
 function game() {
-    if (`${p}` == 5 || `${c}` == 5) {
-        console.log("Game Over!")
+    if (`${p}` == 5) {
+        alert("You Win!")
+    }
+    if (`${c}` == 5) {
+        alert("You Lose!")
     }
 }
 
@@ -77,6 +88,11 @@ function playRound(playerSelection,computerSelection){
         const cScore = document.querySelector('.c-score')
         cScore.innerText = `Computer Score = ${c}`
     }
+
+    roundIncrease()
+    const rCount = document.querySelector('.r-count')
+    rCount.innerText = `Round ${r}`
+
     game()
 }
 
