@@ -1,0 +1,39 @@
+html {background-color: aqua;}
+
+.scoreboard, .choices, .score-display, .round-display, 
+.rock-box, .paper-box, .scissors-box, .rock-pic, .paper-pic, .scissors-pic 
+.rock-btn, .paper-btn, .scissors-btn {
+  display: flex;
+}
+
+.score-display{
+  padding: 30px;
+}
+
+.rock-pic, .scissors-pic, .paper-pic {
+  height: 300px;
+}
+
+.rock-box, .paper-box, .scissors-box {
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+}
+
+.rock-btn, .paper-btn, .scissors-btn {
+  width: auto;
+}
+
+.choices {
+  justify-content: center;
+  gap: 100px;
+}
+
+.scoreboard , .round-display{
+  flex-direction: column;
+  align-items: center;
+}
+
+.score-display {
+  gap: 50px;
+}

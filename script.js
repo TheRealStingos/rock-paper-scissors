@@ -1,8 +1,8 @@
 
 const options = ["rock", "paper", "scissors"]
-const rockButton = document.querySelector('.rock')
-const paperButton = document.querySelector('.paper')
-const scissorsButton = document.querySelector('.scissors')
+const rockButton = document.querySelector('.rock-btn')
+const paperButton = document.querySelector('.paper-btn')
+const scissorsButton = document.querySelector('.scissors-btn')
 const score = document.querySelector('.scoreboard')
 
 function getComputerChoice(){
